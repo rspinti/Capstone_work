@@ -1,15 +1,25 @@
-setwd("/Users/rachelspinti/Documents/R projects/NABD")
-HUC_data <- read.csv("NABD_HUC_analysis2.csv")
+# Storage per capita analysis
+## Authors: Rachel A. Spinti, Laura E. Condon, Jun Zhang
+## Contact: rspinti@email.arizona.edu
+
+#-------------------------------------------------------
+
+#General Setup 
+## Load libraries
 library(ggplot2)
 library(hrbrthemes)
 library(dplyr)
-H=1
-fout=paste("mygraph_",H,".jpeg",sep="")
-fout
 
-# grabbing variables for HUC 02
+## Data location
+directory <- c("/Users/rachelspinti/Documents/R_projects/NABD/Capstone_work")
+setwd(directory)
+
+#-------------------------------------------------------
+
+#Grabbing variables
+HUC_data <- read.csv("NABD.csv")
 #HUC2=as.character(HUC_data$join_REACH)
-HUC=floor(HUC_data$join_REACH/(10^12))
+HUC=floor(HUC_data$join_REACH/(10^12))  #select the first two digits (HUC 2) of HUC code
 HUC[1:20]
 HUC1=(which(HUC=="1"))
 
